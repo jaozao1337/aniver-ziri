@@ -19,7 +19,8 @@
         }
         .hero-bg {
             background-color: #292524; /* stone-800 */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2787&auto=format&fit=crop');
+            /* Imagem de fundo revertida para a anterior */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1563379926898-05961b3412d5?q=80&w=2940&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
@@ -55,16 +56,23 @@
         .checklist-item input[type="checkbox"]:checked::before {
             transform: scale(1);
         }
-        /* Main Tab Styles */
+        /* Main Tab Styles - Aumentados e com mais contraste */
+        .tab-button {
+            transition: all 0.2s ease-in-out;
+        }
         .tab-button.active {
             background-color: #b45309; /* amber-700 */
             color: white;
             border-color: #b45309;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
-        /* Recipe Sub-Tab Styles */
+        /* Recipe Sub-Tab Styles - Aumentados e com mais contraste */
+        .recipe-tab-button {
+            transition: all 0.2s ease-in-out;
+        }
         .recipe-tab-button.active {
             border-color: #854d0e; /* amber-800 */
-            color: #854d0e;
+            color: #854d0e; /* amber-800 */
             background-color: #fef3c7; /* amber-100 */
         }
     </style>
@@ -95,10 +103,11 @@
         <!-- Tabs Section -->
         <section id="planning-section" class="bg-white p-4 sm:p-8 md:p-12 rounded-xl shadow-lg">
             <div class="border-b border-stone-200 mb-8">
-                <nav class="-mb-px flex flex-wrap gap-4" aria-label="Tabs">
-                    <button onclick="changeTab(event, 'tab-prep')" class="tab-button active shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Guia de Preparo</button>
-                    <button onclick="changeTab(event, 'tab-shopping')" class="tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Lista de Compras</button>
-                    <button onclick="changeTab(event, 'tab-recipes')" class="tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Receitas Completas</button>
+                <!-- Abas maiores -->
+                <nav class="-mb-px flex flex-wrap gap-6" aria-label="Tabs">
+                    <button onclick="changeTab(event, 'tab-prep')" class="tab-button active shrink-0 border-2 border-transparent font-medium px-6 md:px-8 py-3 md:py-4 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Guia de Preparo</button>
+                    <button onclick="changeTab(event, 'tab-shopping')" class="tab-button shrink-0 border-2 border-transparent font-medium px-6 md:px-8 py-3 md:py-4 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Lista de Compras</button>
+                    <button onclick="changeTab(event, 'tab-recipes')" class="tab-button shrink-0 border-2 border-transparent font-medium px-6 md:px-8 py-3 md:py-4 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Receitas Completas</button>
                 </nav>
             </div>
 
@@ -133,10 +142,11 @@
                      <h2 class="text-3xl font-bold mb-8 text-stone-800">Receitas (O Grimório da Bosta)</h2>
                      <!-- Recipe Sub-Tabs -->
                      <div class="border-b border-stone-200 mb-8">
-                        <nav class="-mb-px flex flex-wrap gap-2" aria-label="Recipe Tabs">
-                            <button onclick="changeRecipeTab(event, 'recipe-rigatoni')" class="recipe-tab-button active shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Rigatoni Surf 'n' Turf</button>
-                            <button onclick="changeRecipeTab(event, 'recipe-torta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Torta Casadinho</button>
-                             <button onclick="changeRecipeTab(event, 'recipe-pasta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Pasta de Cream Cheese</button>
+                        <nav class="-mb-px flex flex-wrap gap-4" aria-label="Recipe Tabs">
+                            <!-- Sub-abas maiores -->
+                            <button onclick="changeRecipeTab(event, 'recipe-rigatoni')" class="recipe-tab-button active shrink-0 border-b-2 font-medium px-5 py-3 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Rigatoni Surf 'n' Turf</button>
+                            <button onclick="changeRecipeTab(event, 'recipe-torta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Torta Casadinho</button>
+                             <button onclick="changeRecipeTab(event, 'recipe-pasta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-base text-stone-700 hover:text-amber-700 rounded-t-lg">Pasta de Cream Cheese</button>
                         </nav>
                      </div>
                      <div>
