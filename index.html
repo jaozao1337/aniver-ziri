@@ -18,14 +18,13 @@
             font-family: 'Playfair Display', serif;
         }
         
-        /* A IMAGEM DE FUNDO É REFERENCIADA AQUI */
         .hero-bg {
             background-color: #292524; /* stone-800 */
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
             background-size: cover;
             background-position: center;
         }
-        .checklist-item:has(input:checked) span {
+        .checklist-item:has(input:checked) span.item-name {
             text-decoration: line-through;
             color: #a8a29e; /* stone-400 */
         }
@@ -62,10 +61,9 @@
         .tab-button {
             transition: all 0.2s ease-in-out;
         }
-        /* CORREÇÃO: Garante que o texto da aba ativa seja sempre branco */
         .tab-button.active {
             background-color: #b45309; /* amber-700 */
-            color: white !important; /* Adicionado !important para forçar a cor */
+            color: white !important; 
             border-color: #b45309;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
@@ -106,7 +104,6 @@
         <!-- Tabs Section -->
         <section id="planning-section" class="bg-white p-4 sm:p-8 md:p-12 rounded-xl shadow-lg">
             <div class="border-b border-stone-200 mb-8">
-                <!-- Abas com tamanho responsivo -->
                 <nav class="-mb-px flex flex-wrap gap-4" aria-label="Tabs">
                     <button onclick="changeTab(event, 'tab-prep')" class="tab-button active shrink-0 border-2 border-transparent font-medium px-5 py-3 text-sm md:text-base md:px-8 md:py-4 text-stone-700 hover:text-amber-700 rounded-t-lg">Guia de Preparo</button>
                     <button onclick="changeTab(event, 'tab-shopping')" class="tab-button shrink-0 border-2 border-transparent font-medium px-5 py-3 text-sm md:text-base md:px-8 md:py-4 text-stone-700 hover:text-amber-700 rounded-t-lg">Lista de Compras</button>
@@ -130,20 +127,80 @@
                 <!-- Lista de Compras -->
                 <div id="tab-shopping" class="tab-content hidden">
                     <h2 class="text-3xl font-bold mb-8 text-stone-800">Lista de Compras (A Missão)</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Frios & Laticínios</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cream Cheese (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Provolone (300g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Salaminho Italiano (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Manteiga sem Sal (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Leite Condensado (2 latas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Creme de Leite (2 caixas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Parmesão (150g)</span></label></div></div>
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Açougue & Peixaria</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Camarão Limpo (800g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Linguiça Suína (500g)</span></label></div></div>
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Hortifruti</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cebola (2 unidades)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Alho (1 cabeça)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Manjericão Fresco (opcional)</span></label></div></div>
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Mercearia & Conservas</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Amendoim Japonês (500g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeitona Verde (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Pepino em Conserva (1 pote)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Seco (100g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Pringles</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Chips</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Rigatoni (1kg)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Pelado (2 latas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Biscoito Maizena (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeite, Sal, Pimenta</span></label></div></div>
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Doces & Congelados</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Meio Amargo (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Branco (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Nutella (1 pote)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Granulado</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Sorvete de Creme (2L)</span></label></div></div>
-                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Bebidas</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Água, sucos, refris</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cerveja / Vinho</span></label></div></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Frios & Laticínios</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Cream Cheese (150g)</span></span> <span class="font-semibold text-sm">R$ 8,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Queijo Provolone (300g)</span></span> <span class="font-semibold text-sm">R$ 18,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Salaminho Italiano (150g)</span></span> <span class="font-semibold text-sm">R$ 15,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Manteiga sem Sal (200g)</span></span> <span class="font-semibold text-sm">R$ 10,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Leite Condensado (2 latas)</span></span> <span class="font-semibold text-sm">R$ 12,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Creme de Leite (2 caixas)</span></span> <span class="font-semibold text-sm">R$ 7,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Queijo Parmesão (150g)</span></span> <span class="font-semibold text-sm">R$ 12,00</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Açougue & Peixaria</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer text-gray-400"><span class="flex items-center"><input type="checkbox" checked disabled class="mr-3"><span class="item-name">Camarão Limpo (800g)</span></span> <span class="font-semibold text-sm">Já comprado</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Linguiça Suína (500g)</span></span> <span class="font-semibold text-sm">R$ 15,00</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Hortifruti</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Cebola (2 unidades)</span></span> <span class="font-semibold text-sm">R$ 3,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Alho (1 cabeça)</span></span> <span class="font-semibold text-sm">R$ 2,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Manjericão Fresco</span></span> <span class="font-semibold text-sm">R$ 4,00</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Mercearia & Conservas</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Amendoim Japonês (500g)</span></span> <span class="font-semibold text-sm">R$ 10,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Azeitona Verde (200g)</span></span> <span class="font-semibold text-sm">R$ 8,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Pepino em Conserva</span></span> <span class="font-semibold text-sm">R$ 9,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Tomate Seco (100g)</span></span> <span class="font-semibold text-sm">R$ 12,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Batata Pringles</span></span> <span class="font-semibold text-sm">R$ 15,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Batata Chips</span></span> <span class="font-semibold text-sm">R$ 8,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Rigatoni (1kg)</span></span> <span class="font-semibold text-sm">R$ 18,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Tomate Pelado (2 latas)</span></span> <span class="font-semibold text-sm">R$ 14,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Biscoito Maizena (200g)</span></span> <span class="font-semibold text-sm">R$ 5,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Azeite, Sal, Pimenta</span></span> <span class="font-semibold text-sm">R$ 20,00</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Doces & Congelados</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Chocolate Meio Amargo (150g)</span></span> <span class="font-semibold text-sm">R$ 10,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Chocolate Branco (150g)</span></span> <span class="font-semibold text-sm">R$ 10,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Nutella (1 pote)</span></span> <span class="font-semibold text-sm">R$ 20,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Granulado</span></span> <span class="font-semibold text-sm">R$ 5,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Sorvete de Creme (2L)</span></span> <span class="font-semibold text-sm">R$ 30,00</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-amber-700 mb-4">Bebidas</h3>
+                            <div class="space-y-3">
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Água, sucos, refris</span></span> <span class="font-semibold text-sm">~R$ 30,00</span></label>
+                                <label class="checklist-item flex justify-between items-center cursor-pointer"><span class="flex items-center"><input type="checkbox" class="mr-3"><span class="item-name">Cerveja / Vinho</span></span> <span class="font-semibold text-sm">~R$ 50,00</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-8 border-t-2 border-stone-200 border-dashed">
+                        <h3 class="text-2xl font-bold text-stone-800 text-right">Resumo dos Custos</h3>
+                        <div class="max-w-sm ml-auto mt-4 space-y-2 text-stone-600">
+                           <div class="flex justify-between"><span>Subtotal dos Itens:</span> <span class="font-semibold">R$ 390,00</span></div>
+                           <div class="flex justify-between"><span>Margem de Segurança (10%):</span> <span class="font-semibold">R$ 39,00</span></div>
+                           <div class="flex justify-between text-xl font-bold text-amber-800 border-t border-stone-300 pt-2 mt-2"><span>Total Estimado:</span> <span>R$ 429,00</span></div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Receitas Completas -->
                 <div id="tab-recipes" class="tab-content hidden">
                      <h2 class="text-3xl font-bold mb-8 text-stone-800">Receitas (O Grimório da Bosta)</h2>
-                     <!-- Recipe Sub-Tabs -->
                      <div class="border-b border-stone-200 mb-8">
                         <nav class="-mb-px flex flex-wrap gap-2 md:gap-4" aria-label="Recipe Tabs">
                             <button onclick="changeRecipeTab(event, 'recipe-rigatoni')" class="recipe-tab-button active shrink-0 border-b-2 font-medium px-4 py-2 text-sm md:text-base md:px-5 md:py-3 text-stone-700 hover:text-amber-700 rounded-t-lg">Rigatoni Surf 'n' Turf</button>
@@ -161,7 +218,6 @@
                                 <div class="lg:col-span-3 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><h4 class="font-bold text-xl text-stone-800">Modo de Preparo</h4></div><ol class="space-y-4 text-stone-600"><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">1</span><p>Em uma panela grande, aqueça azeite e refogue a cebola. Adicione metade do alho e refogue mais um minuto.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">2</span><p>Tire a pele da linguiça, desmanche-a e junte à panela. Frite bem até dourar.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">3</span><p>Adicione o tomate pelado (amassado). Tempere e deixe cozinhar em fogo baixo por pelo menos 30 minutos.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">4</span><p>Enquanto o molho apura, cozinhe o rigatoni em água fervente e salgada.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">5</span><p>Em uma frigideira separada, salteie os camarões com o resto do alho por 2-3 minutos.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">6</span><p>Escorra o macarrão, misture ao molho de linguiça e, por último, adicione os camarões. Sirva quente com queijo.</p></li></ol></div>
                             </div>
                         </div>
-                        <!-- Receita 2 Content -->
                         <div id="recipe-torta" class="recipe-tab-content hidden">
                             <h3 class="text-2xl font-bold text-amber-700 mb-2">Torta Casadinho</h3>
                             <p class="text-stone-500 mb-6">A sobremesa que vai te dar diabetes, mas feliz.</p>
@@ -170,7 +226,6 @@
                                 <div class="lg:col-span-3 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><h4 class="font-bold text-xl text-stone-800">Modo de Preparo</h4></div><ol class="space-y-4 text-stone-600"><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">1</span><p><strong>Base:</strong> Triture o biscoito e misture com a manteiga. Forre o fundo de uma forma (20cm) e asse a 180°C por 10 min. Deixe esfriar.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">2</span><p><strong>Recheio:</strong> Cozinhe o leite condensado, creme de leite e manteiga até borbulhar. Cozinhe por mais 2 min e desligue.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">3</span><p>Divida o creme em dois. Em um, misture o chocolate meio amargo. No outro, o chocolate branco.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">4</span><p><strong>Montagem:</strong> Despeje os dois cremes sobre a base fria.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">5</span><p>Leve à geladeira por no mínimo 6 horas.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">6</span><p>Finalize com Nutella e granulados antes de servir.</p></li></ol></div>
                             </div>
                         </div>
-                         <!-- Receita 3 Content -->
                         <div id="recipe-pasta" class="recipe-tab-content hidden">
                             <h3 class="text-2xl font-bold text-amber-700 mb-2">Pasta de Cream Cheese com Tomate Seco</h3>
                             <p class="text-stone-500 mb-6">O patê mais fácil do mundo pra enrolar a galera.</p>
