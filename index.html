@@ -21,7 +21,6 @@
         /* A IMAGEM DE FUNDO É REFERENCIADA AQUI */
         .hero-bg {
             background-color: #292524; /* stone-800 */
-            /* Imagem de fundo alterada para o arquivo local background.jpg */
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
             background-size: cover;
             background-position: center;
@@ -63,9 +62,10 @@
         .tab-button {
             transition: all 0.2s ease-in-out;
         }
+        /* CORREÇÃO: Garante que o texto da aba ativa seja sempre branco */
         .tab-button.active {
             background-color: #b45309; /* amber-700 */
-            color: white;
+            color: white !important; /* Adicionado !important para forçar a cor */
             border-color: #b45309;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
