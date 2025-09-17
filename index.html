@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aniversario do Zorig</title>
+    <link rel="icon" type="image/png" href="aba.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #F5F5F4; /* stone-100 */
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
         .hero-bg {
@@ -22,7 +23,6 @@
             background-size: cover;
             background-position: center;
         }
-        /* Estilo para riscar o item da lista quando o checkbox é marcado */
         .checklist-item:has(input:checked) span {
             text-decoration: line-through;
             color: #a8a29e; /* stone-400 */
@@ -55,6 +55,18 @@
         .checklist-item input[type="checkbox"]:checked::before {
             transform: scale(1);
         }
+        /* Main Tab Styles */
+        .tab-button.active {
+            background-color: #b45309; /* amber-700 */
+            color: white;
+            border-color: #b45309;
+        }
+        /* Recipe Sub-Tab Styles */
+        .recipe-tab-button.active {
+            border-color: #854d0e; /* amber-800 */
+            color: #854d0e;
+            background-color: #fef3c7; /* amber-100 */
+        }
     </style>
 </head>
 <body class="text-stone-700">
@@ -74,135 +86,88 @@
         <section class="mb-16 text-center">
             <h2 class="text-4xl font-bold mb-10 text-stone-800">O Cardápio (A Bosta que vamos comer)</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold text-amber-700 mb-4">Entrada</h3>
-                    <p class="text-lg mb-4 font-semibold">Tábua de Frios & Petiscos</p>
-                    <ul class="text-left space-y-2 text-stone-600"><li>• Amendoim Japonês</li><li>• Salaminho Italiano</li><li>• Azeitonas e Pepino em Conserva</li><li>• Pasta de Cream Cheese com Tomate Seco</li><li>• Batatas Pringles & Chips</li><li>• Queijo Provolone</li></ul>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold text-amber-700 mb-4">Prato Principal</h3>
-                    <p class="text-lg mb-4 font-semibold">Rigatoni Surf 'n' Turf</p>
-                    <p class="text-stone-600">Massa com camarão e linguiça. Se ficar ruim, a culpa é de vocês.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold text-amber-700 mb-4">Sobremesa</h3>
-                    <p class="text-lg mb-4 font-semibold">Torta Casadinho & Sorvete</p>
-                    <p class="text-stone-600">Torta de brigadeiro pra adoçar a amargura da vida. E sorvete, claro.</p>
-                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"><h3 class="text-2xl font-bold text-amber-700 mb-4">Entrada</h3><p class="text-lg mb-4 font-semibold">Tábua de Frios & Petiscos</p><ul class="text-left space-y-2 text-stone-600"><li>• Amendoim Japonês</li><li>• Salaminho Italiano</li><li>• Azeitonas e Pepino em Conserva</li><li>• Pasta de Cream Cheese com Tomate Seco</li><li>• Batatas Pringles & Chips</li><li>• Queijo Provolone</li></ul></div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"><h3 class="text-2xl font-bold text-amber-700 mb-4">Prato Principal</h3><p class="text-lg mb-4 font-semibold">Rigatoni Surf 'n' Turf</p><p class="text-stone-600">Massa com camarão e linguiça. Se ficar ruim, a culpa é de vocês.</p></div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"><h3 class="text-2xl font-bold text-amber-700 mb-4">Sobremesa</h3><p class="text-lg mb-4 font-semibold">Torta Casadinho & Sorvete</p><p class="text-stone-600">Torta de brigadeiro pra adoçar a amargura da vida. E sorvete, claro.</p></div>
             </div>
         </section>
 
-        <!-- Guia de Preparo -->
-        <section class="mb-16 bg-white p-8 md:p-12 rounded-xl shadow-lg">
-             <h2 class="text-4xl font-bold mb-8 text-center text-stone-800">Guia de Preparo (Como a Mágica Acontece)</h2>
-             <div class="space-y-8">
-                <div>
-                    <h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Dia Anterior ao Jantar</h3>
-                    <ul class="list-disc list-inside space-y-2 text-stone-600">
-                        <li><strong>Foco total na sobremesa:</strong> A torta precisa de tempo para gelar e ficar perfeita.</li>
-                        <li>Prepare a base de biscoito com manteiga e asse conforme a receita. Deixe esfriar.</li>
-                        <li>Faça as duas massas de brigadeiro (branco e preto).</li>
-                        <li>Monte a torta na forma e leve à geladeira. Ela precisa de pelo menos 6 horas para firmar, então fazer no dia anterior é ideal para não ter correria.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Manhã do Jantar</h3>
-                    <ul class="list-disc list-inside space-y-2 text-stone-600">
-                        <li><strong>Mise en place (organização):</strong> Deixe tudo pré-pronto.</li>
-                        <li>Pique a cebola e o alho para o molho.</li>
-                        <li>Prepare a pasta de cream cheese: misture com o tomate seco picado e tempere. Guarde na geladeira.</li>
-                        <li>Corte o queijo e o salaminho em cubos/fatias. Guarde em potes separados na geladeira.</li>
-                        <li>Se o camarão estiver congelado, passe para a geladeira para descongelar lentamente.</li>
-                    </ul>
-                </div>
-                 <div>
-                    <h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Tarde (3-4h antes da chegada)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-stone-600">
-                        <li><strong>Molho do Rigatoni:</strong> Prepare a base do molho. Refogue a cebola e o alho, adicione a linguiça sem pele e desmanchada, frite bem. Junte o tomate pelado e deixe cozinhar em fogo baixo para apurar o sabor. Não coloque o camarão ainda!</li>
-                        <li><strong>Montagem da Tábua:</strong> Em uma tábua grande, comece a dispor os itens que não murcham: potinhos com azeitonas, pepino, a pasta de cream cheese, e o amendoim. Deixe espaço para os frios e as batatas.</li>
-                     </ul>
-                </div>
-                 <div>
-                    <h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Início da Noite (1h antes)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-stone-600">
-                        <li>Coloque uma panela grande com água para ferver (para o macarrão). Adicione sal generosamente.</li>
-                        <li>Finalize a tábua de frios, adicionando o salame, o queijo e as batatas chips.</li>
-                        <li>Quando os convidados chegarem, sirva a entrada.</li>
-                        <li><strong>30 minutos antes de servir o jantar:</strong> Cozinhe o rigatoni. Enquanto isso, salteie os camarões temperados com sal e alho em uma frigideira quente com azeite. É rápido, 2-3 minutos.</li>
-                        <li>Escorra o macarrão "al dente", misture ao molho de linguiça e, por último, incorpore delicadamente os camarões. Sirva imediatamente com queijo parmesão ralado.</li>
-                    </ul>
-                </div>
-             </div>
-        </section>
-        
-        <!-- Lista de Compras -->
-        <section class="bg-white p-8 md:p-12 rounded-xl shadow-lg">
-            <h2 class="text-4xl font-bold mb-8 text-center text-stone-800">Lista de Compras (A Missão)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Frios & Laticínios</h3>
-                    <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cream Cheese (150g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Provolone (300g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Salaminho Italiano (150g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Manteiga sem Sal (200g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Leite Condensado (2 latas)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Creme de Leite (2 caixas)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Parmesão Ralado (150g)</span></label>
+        <!-- Tabs Section -->
+        <section id="planning-section" class="bg-white p-4 sm:p-8 md:p-12 rounded-xl shadow-lg">
+            <div class="border-b border-stone-200 mb-8">
+                <nav class="-mb-px flex flex-wrap gap-4" aria-label="Tabs">
+                    <button onclick="changeTab(event, 'tab-prep')" class="tab-button active shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Guia de Preparo</button>
+                    <button onclick="changeTab(event, 'tab-shopping')" class="tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Lista de Compras</button>
+                    <button onclick="changeTab(event, 'tab-recipes')" class="tab-button shrink-0 border-b-2 font-medium px-5 py-3 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Receitas Completas</button>
+                </nav>
+            </div>
+
+            <!-- Tab Content -->
+            <div>
+                <!-- Guia de Preparo -->
+                <div id="tab-prep" class="tab-content">
+                    <h2 class="text-3xl font-bold mb-8 text-stone-800">Guia de Preparo (Como a Mágica Acontece)</h2>
+                    <div class="space-y-8">
+                       <div><h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Dia Anterior ao Jantar</h3><ul class="list-disc list-inside space-y-2 text-stone-600"><li><strong>Foco total na sobremesa:</strong> A torta precisa de tempo para gelar e ficar perfeita.</li><li>Prepare a base de biscoito com manteiga e asse. Deixe esfriar.</li><li>Faça as duas massas de brigadeiro (branco e preto).</li><li>Monte a torta e leve à geladeira. Ela precisa de pelo menos 6 horas, então fazer no dia anterior é ideal.</li></ul></div>
+                       <div><h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Manhã do Jantar</h3><ul class="list-disc list-inside space-y-2 text-stone-600"><li><strong>Mise en place (organização):</strong> Deixe tudo pré-pronto.</li><li>Pique a cebola e o alho.</li><li>Prepare a pasta de cream cheese e guarde na geladeira.</li><li>Corte o queijo e o salaminho. Guarde em potes na geladeira.</li><li>Passe o camarão para a geladeira para descongelar.</li></ul></div>
+                       <div><h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Tarde (3-4h antes)</h3><ul class="list-disc list-inside space-y-2 text-stone-600"><li><strong>Molho do Rigatoni:</strong> Prepare a base do molho com a linguiça. Deixe cozinhar em fogo baixo. Não coloque o camarão ainda!</li><li><strong>Montagem da Tábua:</strong> Comece a dispor os itens que não murcham.</li></ul></div>
+                       <div><h3 class="text-2xl font-bold text-amber-700 border-b-2 border-amber-200 pb-2 mb-4">Início da Noite (1h antes)</h3><ul class="list-disc list-inside space-y-2 text-stone-600"><li>Coloque a água do macarrão para ferver.</li><li>Finalize a tábua de frios.</li><li>Quando os convidados chegarem, sirva a entrada.</li><li><strong>30 minutos antes de servir:</strong> Cozinhe o rigatoni. Salteie os camarões. Misture tudo e sirva imediatamente.</li></ul></div>
                     </div>
                 </div>
-                <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Açougue & Peixaria</h3>
-                    <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Camarão Limpo (800g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Linguiça Suína (500g, de boa qualidade)</span></label>
+
+                <!-- Lista de Compras -->
+                <div id="tab-shopping" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold mb-8 text-stone-800">Lista de Compras (A Missão)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Frios & Laticínios</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cream Cheese (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Provolone (300g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Salaminho Italiano (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Manteiga sem Sal (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Leite Condensado (2 latas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Creme de Leite (2 caixas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Queijo Parmesão (150g)</span></label></div></div>
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Açougue & Peixaria</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Camarão Limpo (800g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Linguiça Suína (500g)</span></label></div></div>
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Hortifruti</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cebola (2 unidades)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Alho (1 cabeça)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Manjericão Fresco (opcional)</span></label></div></div>
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Mercearia & Conservas</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Amendoim Japonês (500g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeitona Verde (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Pepino em Conserva (1 pote)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Seco (100g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Pringles</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Chips</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Rigatoni (1kg)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Pelado (2 latas)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Biscoito Maizena (200g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeite, Sal, Pimenta</span></label></div></div>
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Doces & Congelados</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Meio Amargo (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Branco (150g)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Nutella (1 pote)</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Granulado</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Sorvete de Creme (2L)</span></label></div></div>
+                        <div><h3 class="text-2xl font-semibold text-amber-700 mb-4">Bebidas</h3><div class="space-y-3"><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Água, sucos, refris</span></label><label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cerveja / Vinho</span></label></div></div>
                     </div>
                 </div>
-                <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Hortifruti</h3>
-                     <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cebola (2 unidades)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Alho (1 cabeça)</span></label>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Mercearia & Conservas</h3>
-                     <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Amendoim Japonês (500g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeitona Verde sem Caroço (200g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Pepino em Conserva (1 pote)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Seco (100g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Pringles (1 lata)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Batata Chips Diferente (1 pacote)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Rigatoni (1kg)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Tomate Pelado em Lata (2 latas)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Biscoito Maizena (200g)</span></label>
-                         <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Azeite de Oliva Extra Virgem</span></label>
-                         <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Sal e Pimenta do Reino</span></label>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Doces & Congelados</h3>
-                     <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Meio Amargo (150g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Chocolate Branco (150g)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Nutella (1 pote pequeno)</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Granulado</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Sorvete de Creme (pote de 2L)</span></label>
-                    </div>
-                </div>
-                 <!-- Categoria -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-amber-700 mb-4">Bebidas</h3>
-                     <div class="space-y-3">
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Água, sucos, refrigerantes</span></label>
-                        <label class="checklist-item flex items-center space-x-3 cursor-pointer"><input type="checkbox"><span>Cerveja / Vinho (opcional)</span></label>
-                    </div>
+
+                <!-- Receitas Completas -->
+                <div id="tab-recipes" class="tab-content hidden">
+                     <h2 class="text-3xl font-bold mb-8 text-stone-800">Receitas (O Grimório da Bosta)</h2>
+                     <!-- Recipe Sub-Tabs -->
+                     <div class="border-b border-stone-200 mb-8">
+                        <nav class="-mb-px flex flex-wrap gap-2" aria-label="Recipe Tabs">
+                            <button onclick="changeRecipeTab(event, 'recipe-rigatoni')" class="recipe-tab-button active shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Rigatoni Surf 'n' Turf</button>
+                            <button onclick="changeRecipeTab(event, 'recipe-torta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Torta Casadinho</button>
+                             <button onclick="changeRecipeTab(event, 'recipe-pasta')" class="recipe-tab-button shrink-0 border-b-2 font-medium px-4 py-2 text-sm text-stone-600 hover:text-stone-800 rounded-t-lg">Pasta de Cream Cheese</button>
+                        </nav>
+                     </div>
+                     <div>
+                        <!-- Receita 1 Content -->
+                        <div id="recipe-rigatoni" class="recipe-tab-content">
+                            <h3 class="text-2xl font-bold text-amber-700 mb-2">Rigatoni Surf 'n' Turf</h3>
+                            <p class="text-stone-500 mb-6">O prato principal que se der errado, a culpa é da linguiça.</p>
+                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                                <div class="lg:col-span-2 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg><h4 class="font-bold text-xl text-stone-800">Ingredientes</h4></div><ul class="list-disc list-inside space-y-2 text-stone-600 pl-2"><li>1kg de Rigatoni</li><li>800g de camarão limpo</li><li>500g de linguiça suína</li><li>2 latas de tomate pelado</li><li>1 cebola grande picada</li><li>4 dentes de alho picados</li><li>Azeite de oliva</li><li>Sal e pimenta do reino</li><li>Queijo parmesão</li></ul></div>
+                                <div class="lg:col-span-3 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><h4 class="font-bold text-xl text-stone-800">Modo de Preparo</h4></div><ol class="space-y-4 text-stone-600"><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">1</span><p>Em uma panela grande, aqueça azeite e refogue a cebola. Adicione metade do alho e refogue mais um minuto.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">2</span><p>Tire a pele da linguiça, desmanche-a e junte à panela. Frite bem até dourar.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">3</span><p>Adicione o tomate pelado (amassado). Tempere e deixe cozinhar em fogo baixo por pelo menos 30 minutos.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">4</span><p>Enquanto o molho apura, cozinhe o rigatoni em água fervente e salgada.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">5</span><p>Em uma frigideira separada, salteie os camarões com o resto do alho por 2-3 minutos.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">6</span><p>Escorra o macarrão, misture ao molho de linguiça e, por último, adicione os camarões. Sirva quente com queijo.</p></li></ol></div>
+                            </div>
+                        </div>
+                        <!-- Receita 2 Content -->
+                        <div id="recipe-torta" class="recipe-tab-content hidden">
+                            <h3 class="text-2xl font-bold text-amber-700 mb-2">Torta Casadinho</h3>
+                            <p class="text-stone-500 mb-6">A sobremesa que vai te dar diabetes, mas feliz.</p>
+                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                                <div class="lg:col-span-2 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg><h4 class="font-bold text-xl text-stone-800">Ingredientes</h4></div><ul class="list-disc list-inside space-y-2 text-stone-600 pl-2"><li><strong>Base:</strong> 200g biscoito maisena, 120g manteiga.</li><li><strong>Recheio:</strong> 2 latas leite condensado, 2 caixas creme de leite, 1 colher (sopa) manteiga.</li><li><strong>Adicionais:</strong> 150g chocolate meio amargo, 150g chocolate branco.</li><li><strong>Finalização:</strong> Nutella, granulados, sorvete.</li></ul></div>
+                                <div class="lg:col-span-3 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><h4 class="font-bold text-xl text-stone-800">Modo de Preparo</h4></div><ol class="space-y-4 text-stone-600"><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">1</span><p><strong>Base:</strong> Triture o biscoito e misture com a manteiga. Forre o fundo de uma forma (20cm) e asse a 180°C por 10 min. Deixe esfriar.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">2</span><p><strong>Recheio:</strong> Cozinhe o leite condensado, creme de leite e manteiga até borbulhar. Cozinhe por mais 2 min e desligue.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">3</span><p>Divida o creme em dois. Em um, misture o chocolate meio amargo. No outro, o chocolate branco.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">4</span><p><strong>Montagem:</strong> Despeje os dois cremes sobre a base fria.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">5</span><p>Leve à geladeira por no mínimo 6 horas.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">6</span><p>Finalize com Nutella e granulados antes de servir.</p></li></ol></div>
+                            </div>
+                        </div>
+                         <!-- Receita 3 Content -->
+                        <div id="recipe-pasta" class="recipe-tab-content hidden">
+                            <h3 class="text-2xl font-bold text-amber-700 mb-2">Pasta de Cream Cheese com Tomate Seco</h3>
+                            <p class="text-stone-500 mb-6">O patê mais fácil do mundo pra enrolar a galera.</p>
+                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                                <div class="lg:col-span-2 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg><h4 class="font-bold text-xl text-stone-800">Ingredientes</h4></div><ul class="list-disc list-inside space-y-2 text-stone-600 pl-2"><li>150g de Cream Cheese</li><li>100g de Tomate Seco em conserva</li><li>2 colheres (sopa) do óleo do tomate</li><li>Sal e pimenta do reino a gosto</li><li>Manjericão fresco picado (opcional)</li></ul></div>
+                                <div class="lg:col-span-3 bg-stone-50 p-6 rounded-xl shadow-sm border border-stone-200"><div class="flex items-center gap-3 mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><h4 class="font-bold text-xl text-stone-800">Modo de Preparo</h4></div><ol class="space-y-4 text-stone-600"><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">1</span><p>Pique bem o tomate seco em pedaços pequenos. Para facilitar, pode usar um processador.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">2</span><p>Em uma tigela, coloque o cream cheese e amasse com um garfo para amolecer.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">3</span><p>Adicione o tomate picado, o óleo da conserva, sal, pimenta e o manjericão (se for usar).</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">4</span><p>Misture tudo muito bem até formar uma pasta homogênea. Prove e ajuste o sal.</p></li><li class="flex gap-4"><span class="bg-amber-700 text-white rounded-full w-6 h-6 text-sm flex items-center justify-center font-bold shrink-0 mt-1">5</span><p>Sirva em um potinho com pães, torradas ou como parte da tábua de frios.</p></li></ol></div>
+                            </div>
+                        </div>
+                     </div>
                 </div>
             </div>
         </section>
@@ -214,5 +179,22 @@
         <p>Até a noite da bosta!</p>
     </footer>
 
+    <script>
+        function changeTab(event, tabID) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabID).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+        }
+
+        function changeRecipeTab(event, recipeID) {
+            document.querySelectorAll('.recipe-tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.recipe-tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(recipeID).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
+
